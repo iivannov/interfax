@@ -1,0 +1,22 @@
+{
+    "name": "iivannov/interfax",
+    "description": "Very simple client for InterFax SOAP API",
+    "keywords": ["interfax","send fax", "client", "php"],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Ivanov",
+            "email": "iivannov@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iivannov\\InterFax\\": "src"
+        }
+    }
+}
