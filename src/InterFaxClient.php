@@ -4,16 +4,15 @@ namespace Iivannov\InterFax;
 
 class InterFaxClient extends \SoapClient implements InterFaxContract {
 
-
     public function SendCharFax($params)
     {
-        return $this->SendCharFax($params);
+        return parent::SendCharFax($params);
     }
 
 
     public function Sendfax($params)
     {
-        return $this->Sendfax($params);
+        return parent::Sendfax($params);
     }
 }
 
