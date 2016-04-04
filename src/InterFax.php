@@ -33,6 +33,7 @@ class InterFax
     protected $wsdl = 'http://ws.interfax.net/dfs.asmx?wsdl';
 
 
+
     /**
      * InterFax constructor.
      * @param $username
@@ -47,7 +48,7 @@ class InterFax
         if ($wsdl)
             $this->wsdl = $wsdl;
 
-//        $this->client = new InterFaxClient($this->wsdl);
+        $this->client = new InterFaxClient($this->wsdl);
     }
 
     /**
@@ -89,13 +90,29 @@ class InterFax
      */
     public function sendFile($number, $filename, $type)
     {
+        return $this->sendFileContents($number, $this->getFileContents($filename), $type);
+    }
+
+    /**
+     * Sends a fax with a file attachment
+     *
+     * @param $number
+     * @param $filename
+     * @param $type
+     * @return mixed
+     * @throws InterFaxException
+     * @throws \Exception
+     */
+    public function sendFileContents($number, $data, $type)
+    {
         $params = [
             'Username' => $this->username,
             'Password' => $this->password,
             'FaxNumber' => $number,
-            'FileData' =>  $this->getFileContents($filename),
+            'FileData' =>  $data,
             'FileType' => $type
         ];
+
 
         $response = $this->client->Sendfax($params);
 
