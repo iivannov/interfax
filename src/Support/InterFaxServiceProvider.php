@@ -12,8 +12,10 @@ class InterFaxServiceProvider extends ServiceProvider {
     {
         $this->app->bind('interfax', function($app) {
 
-            $username = config('services.interfax.username');
-            $password = config('services.interfax.password');
+            $config = $app->make('config')->get('services');
+
+            $username = $config['interfax.username'];
+            $password = $config['interfax.password'];
 
             if(!$username || !$password)
                 throw new \InvalidArgumentException('Missing username or password in configuration files');
