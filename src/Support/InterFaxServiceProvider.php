@@ -1,6 +1,6 @@
 <?php
 
-namespace Iivannov\Larasquare\Support;
+namespace Iivannov\InterFax\Support;
 
 use Iivannov\InterFax\InterFax;
 use Illuminate\Support\ServiceProvider;
@@ -14,8 +14,8 @@ class InterFaxServiceProvider extends ServiceProvider {
 
             $config = $app->make('config')->get('services');
 
-            $username = $config['interfax.username'];
-            $password = $config['interfax.password'];
+            $username = $config['interfax']['username'];
+            $password = $config['interfax']['password'];
 
             if(!$username || !$password)
                 throw new \InvalidArgumentException('Missing username or password in configuration files');

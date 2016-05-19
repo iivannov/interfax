@@ -39,7 +39,7 @@ If you are using Laravel, the package contains a Service Provider and a Facade f
 
 'aliases' => [
     ...
-    'Interfax' => Iivannov\Interfax\Support\Facade\Interfax::class
+    'Interfax' => Iivannov\Interfax\Support\Facade\InterFax::class
 ];
 ```
 
